@@ -5,7 +5,8 @@ module Api
       respond_to :json
 
       def index
-        respond_with User.all
+#        respond_with User.all
+	@users = User.all
       end
 
       def show

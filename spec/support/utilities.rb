@@ -1,5 +1,5 @@
 def full_title(page_title)
-  base_title = "TheCoolDoc Sr. Assist System"
+  base_title = "TheCoolDoc's Hear4.Me"
   if page_title.empty?
     base_title
   else

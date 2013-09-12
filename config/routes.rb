@@ -2,9 +2,9 @@ SampleApp::Application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :users
+      resources :microposts
     end
   end
-
   resources :users 
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]

@@ -2,7 +2,7 @@ module Api
   module V1
     class MicropostsController < ApplicationController
       protect_from_forgery with: :null_session
-      before_filter :restrict_access
+      #before_filter :restrict_access
       respond_to :json
 
       def create
@@ -16,9 +16,15 @@ module Api
       end
 
       def destroy
+        @micropost = Micropost.find(params[:id])
+        @user = User.find(params[:uid])
         @micropost.destroy
+        # TODO need to check if the post id belongs to user uid
+        #@response = @user.name 
+        @response = "success"
+      rescue ActiveRecord::RecordNotFound
+        @response = "cound not delete post, record not found"
       end
-
     private
       def micropost_params
         params.require(:micropost).permit(:content)

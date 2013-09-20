@@ -7,6 +7,7 @@ class Micropost < ActiveRecord::Base
     followed_user_ids = "SELECT followed_id FROM relationships
                          WHERE follower_id = :user_id"
     where("user_id IN (#{followed_user_ids}) OR user_id = :user_id",
+          created_at: 10.days.ago..Time.now,
           user_id: user.id) 
   end
 end

@@ -8,6 +8,7 @@ SampleApp::Application.routes.draw do
       end	
       resources :microposts
       resources :relationships
+      resources :audios
     end
   end
   resources :users do

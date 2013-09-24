@@ -3,7 +3,13 @@
   <span class="user">
     <%= link_to feed_item.user.name, feed_item.user %>
   </span>
+  
   <span class="content"><%= feed_item.content %></span>
+  <% if !feed_item.link.nil? %>
+    <section id="audio">No audio playing.
+    </section>
+    <span><%= link_to "Get Audio", download_url_for(feed_item.link), onmouseover: "get_audio()", class: "html5", remote: "true" %></span>
+  <% end %>
   <span class="timestamp">
     Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
   </span>

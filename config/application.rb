@@ -25,5 +25,10 @@ module SampleApp
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    AWS::S3::Base.establish_connection!(
+      :access_key_id     => 'AKIAIVGFZJ6QQRLSGTVA',       
+      :secret_access_key => '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'
+    )
+    #BUCKET = 'thunder002'
   end
 end

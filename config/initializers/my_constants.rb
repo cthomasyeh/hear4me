@@ -1,0 +1,1 @@
+BUCKET = 'thunder002'

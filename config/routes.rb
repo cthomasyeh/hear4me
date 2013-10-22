@@ -1,4 +1,5 @@
 SampleApp::Application.routes.draw do
+  get "reminders/new"
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :users do
@@ -9,6 +10,7 @@ SampleApp::Application.routes.draw do
       resources :microposts
       resources :relationships
       resources :audios
+      resources :reminders
     end
   end
   resources :users do

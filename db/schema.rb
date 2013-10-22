@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130920032620) do
+ActiveRecord::Schema.define(version: 20131022014237) do
 
   create_table "api_keys", force: true do |t|
     t.string   "access_token"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20130920032620) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "link"
+    t.string   "photo_link"
+    t.string   "dict_text"
   end
 
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
@@ -39,6 +41,24 @@ ActiveRecord::Schema.define(version: 20130920032620) do
   add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+
+  create_table "reminders", force: true do |t|
+    t.integer  "user_id"
+    t.string   "photo_link"
+    t.string   "audio_link"
+    t.string   "text"
+    t.time     "first"
+    t.time     "second"
+    t.time     "third"
+    t.time     "fourth"
+    t.time     "fifth"
+    t.time     "sixth"
+    t.integer  "frequency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reminders", ["user_id", "created_at"], name: "index_reminders_on_user_id_and_created_at"
 
   create_table "users", force: true do |t|
     t.string   "name"

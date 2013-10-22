@@ -12,6 +12,7 @@ module Api
       def show
 	@user = User.find(params[:id])
         @microposts = @user.microposts
+        @reminders = @user.reminders
         #respond_with User.find(params[:id])
       end
 

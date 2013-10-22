@@ -27,7 +27,7 @@ module Api
       end
     private
       def micropost_params
-        params.require(:micropost).permit(:content, :link)
+        params.require(:micropost).permit(:content, :link, :photo_link )
       end
       def restrict_access
         authenticate_or_request_with_http_token do |token, options|
